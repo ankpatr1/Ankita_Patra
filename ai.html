@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Cheatsheets</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 400px;
+      height: 520px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 5px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .view-btn {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    .back-btn {
+      background-color: #dc3545;
+      color: #fff;
+    }
+
+    .back-container {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Cheatsheet</h1>
+
+    <div class="grid-container">
+      <div class="card">
+        <img src="confusecloud.png" alt="Cheatsheet 1" />
+        <div class="card-content">
+          <h3>Cloud Services</h3>
+          <p>This guide summarizes key concepts, formulas, and commands for quick recall.</p>
+          <div class="btn-group">
+            <button class="btn view-btn" onclick="viewSlide('cloudimg.jpeg')">View</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="java.JPG" alt="Programming Language" />
+        <div class="card-content">
+          <h3>Programming Language</h3>
+          <p>Explore Java, Basic Coding, and DSA resources including PDFs and images.</p>
+          <div class="btn-group">
+            <!-- Corrected the viewSlide function to navigate to folder.html -->
+            <button class="btn view-btn" onclick="viewFolder('programming')">View</button>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="card">
+        <img src="others.png" alt="Other" />
+        <div class="card-content">
+          <h3>Other</h3>
+          <p>A compact reference for mastering your skills.</p>
+          <div class="btn-group">
+            <button class="btn view-btn" onclick="viewSlide('system_design.png')">View</button>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+    <!-- Back Button Section -->
+    <div class="back-container">
+      <button class="btn back-btn" onclick="goBack()">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    // Redirect to view.html with selected image
+    function viewSlide(image) {
+      window.location.href = `view.html?img=${image}`;
+    }
+
+    // Redirect back to index.html
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+    // Open the folder.html for Programming Language
+    function viewFolder(folder) {
+        if (folder === 'programming') {
+            window.location.href = 'folder.html';
+        }
+    }
+
+  </script>
+</body>
+</html>

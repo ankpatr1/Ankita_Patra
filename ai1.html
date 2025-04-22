@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Own Projects</title>
+  <style>
+    /* Basic page styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* Container to center content */
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    /* Grid container to display folders */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin-bottom: 30px;
+    }
+
+    /* Folder Card styling */
+    .file-card {
+      background: #222;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      width: 150px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .file-card:hover {
+      transform: scale(1.05);
+    }
+
+    .file-card img {
+      width: 70%;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .file-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Button styling */
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back-btn {
+      background-color: #dc3545;
+      color: #fff;
+    }
+
+    .back-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Own Projects - GitHub Repositories</h1>
+
+    <!-- Folder Grid Layout -->
+    <div class="grid-container" id="fileContainer">
+      <!-- Dynamically generated GitHub links will appear here -->
+    </div>
+
+    <!-- Back Button -->
+    <button class="btn back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    // List of GitHub Repositories with Different Icons
+    const projects = [
+      { name: 'Weather Project', url: 'https://github.com/ankpatr1/Weather_App', icon: 'weather_app.png' },
+      { name: 'GO Project', url: 'https://github.com/ankpatr1/Go_programming_basic_concepts_with_Realtime_project', icon: 'folder.png' },
+      { name: 'Global_Weather', url: 'https://github.com/ankpatr1/Global_Weather_Repository_Fordatascientists', icon: 'measure_weather.png' },
+      { name: 'M_A_Streamline_Project', url: 'https://github.com/ankpatr1/M-A_Streamline', icon: 'm_a_streamline.png' },
+      { name: 'Fake_news detection', url: 'https://github.com/ankpatr1/fake_news_detection', icon: 'fakenews.png' }
+      
+    ];
+
+    // Dynamically Render GitHub Links
+    const fileContainer = document.getElementById('fileContainer');
+    projects.forEach((project) => {
+      const card = document.createElement('div');
+      card.className = 'file-card';
+      card.onclick = () => window.open(project.url, '_blank');
+
+      // Add Different Icon for Each Project
+      card.innerHTML = `
+        <img src="${project.icon}" alt="${project.name}" />
+        <p>${project.name}</p>
+      `;
+      fileContainer.appendChild(card);
+    });
+
+    // Go Back to AI Project Page
+    function goBack() {
+      window.location.href = 'index.html'; // Redirect to ai1.html
+    }
+  </script>
+</body>
+</html>

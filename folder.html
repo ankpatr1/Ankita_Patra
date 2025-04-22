@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programming Language - File Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    /* Grid Layout for File Viewer */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .file-card {
+      background: #222;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      width: 150px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .file-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Small Ghibli-style book icon */
+    .file-card img {
+      width: 50px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .file-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Back button styling */
+    .back-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Programming Language Resources</h1>
+
+    <!-- Grid Layout for File List -->
+    <div class="grid-container" id="fileContainer">
+      <!-- Dynamically generated file cards will appear here -->
+    </div>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    // List of Files to Display for Programming Language
+    const files = [
+      { name: 'JavaBasic Programming Interview Notes', type: 'pdf', path: 'Raghu-Sir-Programs.pdf' },
+      { name: 'DSA Theory basic notes in C', type: 'pdf', path: 'dsraghu-1.pdf' },
+      { name: 'Core Java Notes for Interview', type: 'pdf', path: 'Core_java.pdf' },
+    ];
+
+    // Dynamically Render File Cards with Book Icon
+    const fileContainer = document.getElementById('fileContainer');
+    files.forEach((file) => {
+      const card = document.createElement('div');
+      card.className = 'file-card';
+      card.onclick = () => viewFile(file.path, file.type);
+
+      // Add File Thumbnail using small-book-icon.png
+      card.innerHTML = `
+        <img src="folder.png" alt="${file.name}" />
+        <p>${file.name}</p>
+      `;
+      fileContainer.appendChild(card);
+    });
+
+    // Function to Open PDF or Redirect to view.html for Images
+    function viewFile(path, type) {
+      if (type === 'pdf') {
+        window.open(path, '_blank'); // Open PDF in new tab
+      } else if (type === 'img') {
+        window.location.href = `view.html?img=${path}`; // Open Image in view.html
+      }
+    }
+
+    // Go Back to AI Cheatsheet Page
+    function goBack() {
+      window.location.href = 'ai.html';
+    }
+  </script>
+</body>
+</html>

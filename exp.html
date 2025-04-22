@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Ankita Patra showcasing projects, skills, certifications, and work experience." />
+    <title>Portfolio - Ankita Patra</title>
+
+    <!-- Font Awesome for social icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="profile-container">
+        <div class="profile-pic-wrap">
+          <img src="Ankita.jpg" alt="Ankita Patra" class="profile-pic" />
+        </div>
+        <h1>Ankita Patra</h1>
+        <p class="highlight-bar">
+          <a href="mailto:apatra@binghamton.edu">apatra@binghamton.edu</a>
+        </p>
+        <p class="highlight-bar">Binghamton, New York, 13905</p>
+        <p class="summary">
+          Pursuing a <strong>Master’s in Computer Science</strong> at
+          <strong>State University Of New York at Binghamton</strong> with
+          <strong>5.5+ years</strong> of software development experience.
+        </p>
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="https://github.com/ankpatr1" target="_blank" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ankitapatra1997/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://x.com/Ankita_Patra06" target="_blank" aria-label="X" title="X">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Left Column -->
+      <div class="left-column">
+        <!-- Key Skills -->
+        <section class="skills">
+          <h2>Key Skills</h2>
+          <div class="pill">Java, Python, C++, JavaScript</div>
+          <div class="pill">DevOps, Kubernetes, Docker</div>
+          <div class="pill">Cloud Platforms: AWS, Azure, GCP</div>
+          <div class="pill">Web Development: React, Node.js</div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="certifications">
+          <h2>Certifications</h2>
+          <div class="pill">AWS Certified Developer - Associate</div>
+          <div class="pill">Certified Scrum Master</div>
+          <div class="pill">Machine Learning with Python - IBM</div>
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <!-- Education -->
+        <section class="education">
+          <h2>Education</h2>
+          <div class="pill">
+            <strong>State University of New York at Binghamton</strong>
+            <br />Master’s in Computer Science (AI Track) | GPA: 3.47
+          </div>
+          <div class="pill">
+            <strong>Biju Patnaik University of Technology</strong>
+            <br />Bachelor’s in Computer Science | GPA: 3.5
+          </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="experience">
+          <h2>Work Experience</h2>
+          <div class="pill">
+            <strong>Graduate Research Assistant</strong> – Binghamton University (2025 – Present)
+          </div>
+          <div class="pill">
+            <strong>Senior Software Engineer</strong> – Tata Consultancy Services (2023 – 2024)
+          </div>
+          <div class="pill">
+            <strong>Software Engineer</strong> – IBM (2019 – 2021)
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Projects Section -->
+    <section class="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="project1.png" alt="Project 1" />
+          <h3>Machine Learning Forecast</h3>
+          <p>Developed a load forecasting model using LSTM.</p>
+          <a href="project1.html" class="view-btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <img src="project2.png" alt="Project 2" />
+          <h3>DevOps Automation</h3>
+          <p>Automated CI/CD pipelines using Docker and Kubernetes.</p>
+          <a href="project2.html" class="view-btn">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Ankita Patra. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Theme Toggle -->
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const themeToggle = document.getElementById("themeToggle");
+        body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
+        themeToggle.innerHTML = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+      }
+
+      // Apply saved theme
+      document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-mode");
+          document.getElementById("themeToggle").innerHTML = "☀️";
+        }
+      });
+    </script>
+  </body>
+</html>
