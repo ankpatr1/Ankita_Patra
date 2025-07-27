@@ -11,6 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+  
     <style>
       /* CSS Variables for easy theming */
       :root {
@@ -59,6 +60,7 @@
         border-radius: 50%;
         overflow: hidden;
         border: 5px solid var(--highlight-color);
+        perspective: 1000px; /*added*/
         /* We'll also treat this as the flip-card container */
       }
       .profile-pic {
@@ -232,10 +234,10 @@
         justify-content: center;
       }
       .project-card {
-        border: 1px solid var(--pill-border);
+        border: 2px solid var(--pill-border);
         border-radius: 10px;
         overflow: hidden;
-        width: 280px;
+        width: 200px;   /*280*/
         background: var(--bg-color);
         color: var(--text-color);
         text-align: center;
@@ -297,13 +299,13 @@
 
   /* Auto flip animation on the inner card */
   .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform-style: preserve-3d;
-    animation: flipAnimation 6s infinite;
-  }
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: flipAnimation 6s infinite linear;
+  border-radius: 50%; /* ensure round container */
+}
 
   /* Keyframes for auto flipping */
   @keyframes flipAnimation {
@@ -312,19 +314,21 @@
     100% { transform: rotateY(360deg); }
   }
 
-  /* Both sides of the card */
   .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 50%; /* keep both sides round */
+  overflow: hidden;
+}
 
-  /* The back side is rotated */
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+
 </style>
     <script>
       // Toggle Phone Popup
@@ -392,7 +396,7 @@
         <p class="highlight-bar">
           <a href="mailto:apatra@binghamton.edu">apatra@binghamton.edu</a>
         </p>
-        <p class="highlight-bar">Binghamton, New York, 13905</p>
+        <p class="highlight-bar">153 Murray, New York, 13905</p>
         <p class="summary">
           <strong>Software Development Engineer</strong>.
         </p>
@@ -415,10 +419,6 @@
         </style>
         <div class="social-links">
           <!-- ABOUT ME icon -->
-          <a href="about.html" aria-label="About Me" title="About Me">
-            <img src="ghibli.png" alt="About Me" class="about-icon" />
-          </a>
-
           <a href="https://github.com/ankpatr1" target="_blank" aria-label="GitHub" title="GitHub">
             <i class="fab fa-github" ></i>
           </a>
@@ -446,7 +446,7 @@
           >
             <i class="fas fa-book" style="color: #D2691E;"></i>
           </a>
-          <a href="https://x.com/Ankita_Patra06" target="_blank" aria-label="X" title="X">
+          <a href="https://x.com/apatra06" target="_blank" aria-label="X" title="X">
             <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
           </a>
           <a
@@ -490,308 +490,30 @@
       <button onclick="hidePhonePopup()">Close</button>
     </div>
 
-    <!-- Main Content: Two Columns -->
-    <main>
-      <div class="left-column">
-        <!-- Key Skills -->
-        <section class="skills">
-          <h2>Key Skills</h2>
-          <div class="pill">
-            <strong>Operating Systems:</strong> Linux, Windows
-          </div>
-          <div class="pill">
-            <strong>Tools &amp; IDEs:</strong> Jupyter, Visual Studio Code, Postman, REST APIs, Jira, Confluence, BitBucket, Git, Eclipse, IntelliJ, Octopus Deployment Tool, IBM MQ Explorer, Teradata SQL Assistant, PyCharm, MATLAB, Maven
-          </div>
-          <div class="pill">
-            <strong>Programming Languages:</strong> Java, Python, C++, C, Rust, Shell/Bash Scripting, Go, TypeScript, JavaScript, R, ML
-          </div>
-          <div class="pill">
-            <strong>Web Development:</strong> HTML5, CSS, JavaScript, React.js, Node.js, Express.js, Angular
-          </div>
-          <div class="pill">
-            <strong>Cloud Platforms:</strong> AWS, Azure, Google Cloud Platform (GCP)
-          </div>
-          <div class="pill">
-            <strong>DevOps &amp; CI/CD:</strong> Kubernetes, Docker, Helm, Jenkins, Terraform, GitLab CI/CD, GitHub Actions, Ansible
-          </div>
-          <div class="pill">
-            <strong>Code Analysis &amp; Monitoring:</strong> SonarQube, Grafana, Prometheus, ServiceNow, Nagios
-          </div>
-          <div class="pill">
-            <strong>Databases &amp; Open Source:</strong> DynamoDB, MongoDB, Redshift, Snowflake, MySQL, SQL, PostgreSQL, NoSQL, GraphQL
-          </div>
-          <div class="pill">
-            <strong>Product Management:</strong> Agile, Scrum, Roadmapping
-          </div>
-          <div class="pill">
-            <strong>Automation &amp; Development:</strong> Python, Java, Monkey-patching, Selenium, Workflow Optimization
-          </div>
-        </section>
-
-        <!-- Certifications -->
-        <section class="certifications">
-          <h2>Certifications</h2>
-          <div class="pill">AWS Certified Developer - Associate DVA-C02</div>
-          <div class="pill">Certified Scrum Master (IBM)</div>
-          <div class="pill">Cloud core (IBM)</div>
-          <div class="pill">Terraform Associate certification (HashiCorp)</div>
-          <div class="pill">Data Science Methodologies - IBM</div>
-          <div class="pill">Data Science Foundations - Level 1 (IBM)</div>
-          <div class="pill">IBM Cloud Essentials V2 (IBM)</div>
-          <div class="pill">IBM Cloud Private - Foundation Technology (IBM)</div>
-          <div class="pill">IBM Cloud Private Infrastructure and Architecture (IBM)</div>
-          <div class="pill">Machine learning with python - level 1 (IBM)</div>
-          <div class="pill">Machine Learning, Data Science and Generative AI with Python - Udemy</div>
-          <div class="pill">AWS Cloud Practitioner</div>
-          <div class="pill">AZ-900 (Microsoft Azure Fundamentals)</div>
-          <div class="pill">Build Your Generative AI Productivity Skills with Microsoft and LinkedIn</div>
-        </section>
-      </div>
-
-      <div class="right-column">
-        <!-- Education -->
-        <section class="education">
-          <h2>Education</h2>
-          <div class="pill">
-            <strong>State University of New York at Binghamton, Binghamton, NY</strong>
-            <span style="color: var(--highlight-color); font-weight: bold;">(Aug 2024 – Dec 2025)</span>
-            <br />
-            Master’s in Computer Science (Artificial Intelligence Track) | GPA: 3.47
-          </div>
-          <div class="pill">
-            <strong>Biju Patnaik University of Technology, Odisha, India</strong>
-            <span style="color: var(--highlight-color); font-weight: bold;">(Aug 2014 – Jun 2018)</span>
-            <br />
-            Bachelor’s in Computer Science | GPA: 3.5 (7.52 CGPA)
-          </div>
-        </section>
-
-        <!-- Work Experience -->
-        <section class="experience">
-          <h2>Work Experience</h2>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalGrad'); return false;">
-              Graduate Research Assistant (Binghamton University - SUNY) (Jan 2025 – Present) – New York
-            </a>
-          </div>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalTCS'); return false;">
-              Senior Software Development Engineer (Tata Consultancy Services) (Jan 2023 - Jul 2024) – Bengaluru, Karnataka, India
-            </a>
-          </div>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalCapgemini'); return false;">
-              Software Development Engineer (Capgemini) (Oct 2021 - Jan 2023) – Bengaluru, Karnataka, India
-            </a>
-          </div>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalIBM'); return false;">
-              Software Engineer (IBM) (Feb 2019 - Oct 2021) – Bengaluru Area, India
-            </a>
-          </div>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalBharat'); return false;">
-              Summer Intern (Bharat Sanchar Nigam Limited - India) (May 2016 - Aug 2016)
-            </a>
-          </div>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalJSpiders'); return false;">
-              Intern (J-Spiders) (August 2018) – Bengaluru, Karnataka, India
-            </a>
-          </div>
-          <div class="pill">
-            <a href="#" class="work-link" onclick="showModal('expModalJavaTech'); return false;">
-              Intern (Java Technocrat) (August 2017) – Bhubaneswar, Odisha, India
-            </a>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <!-- Modals -->
-    <div id="expModalGrad" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalGrad')">&times;</span>
-        <header>
-          <h1>Graduate Research Assistant</h1>
-          <p>Binghamton University - SUNY | Jan 2025 – Present | New York</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Key responsibilities and achievements:</p>
-            <ul>
-              <li><strong>Machine Learning:</strong> Working under <strong>Zhaohan Xi</strong> to develop advanced models.</li>
-              <li><strong>Data Collection:</strong> Collecting and compiling data for competitive examinations.</li>
-              <li><strong>Technical Skillset:</strong> Proficient in <strong>PyTorch, TensorFlow</strong>, and <strong>scikit-learn</strong>.</li>
-              <li><strong>Data Analysis:</strong> Conducted in-depth statistical analysis supporting AI projects.</li>
-              <li><strong>Project Coordination:</strong> Managed schedules ensuring timely project delivery.</li>
-              <li><strong>AI Roadmaps:</strong> Developed strategic roadmaps incorporating <strong>Generative AI</strong>.</li>
-            </ul>
-          </section>
-          <!-- Buttons -->
-        <div class="pdf-actions" id="actionButtons">
-          <a href="Ankita Patra.pdf" download="LOR-research.pdf" class="download-btn">⬇️ LOR</a>
-        </div>
-          <a href="#" class="back-btn" onclick="hideModal('expModalGrad'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
-    <div id="expModalTCS" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalTCS')">&times;</span>
-        <header>
-          <h1>Senior Software Development Engineer</h1>
-          <p>Tata Consultancy Services | Jan 2023 - Jul 2024 | Bengaluru, Karnataka, India</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Key achievements and metrics:</p>
-            <ul>
-              <li><strong>DevOps Excellence:</strong> Fixed bugs and built code using <strong>Kubernetes</strong> and <strong>Docker</strong>.</li>
-              <li><strong>Terraform Modules:</strong> Created and restructured modules for simplified maintenance.</li>
-              <li><strong>Container Orchestration:</strong> Deployed containerized apps on <strong>EKS/AKS</strong>.</li>
-              <li><strong>AWS Lambda:</strong> Orchestrated functions using <strong>AWS StepFunctions</strong>.</li>
-              <li><strong>Automation:</strong> Automated AMI creation for <strong>50+ instances</strong> with <strong>Python</strong>.</li>
-            </ul>
-          </section>
-          <a href="#" class="back-btn" onclick="hideModal('expModalTCS'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
-    <div id="expModalCapgemini" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalCapgemini')">&times;</span>
-        <header>
-          <h1>Software Development Engineer</h1>
-          <p>Capgemini | Oct 2021 - Jan 2023 | Bengaluru, Karnataka, India</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Core deliverables and focus areas:</p>
-            <ul>
-              <li><strong>IT Translation:</strong> Converted business requirements into technical designs and prototypes.</li>
-              <li><strong>Full Stack Development:</strong> Delivered components using <strong>Java, Spring Boot</strong> and <strong>Python</strong> automation.</li>
-              <li><strong>DevOps Integration:</strong> Implemented CI/CD pipelines using <strong>Docker, Jenkins</strong> and <strong>Kubernetes</strong>.</li>
-              <li><strong>Cloud Expertise:</strong> Worked with both <strong>Azure</strong> and <strong>AWS</strong> platforms.</li>
-              <li><strong>Agile Methodologies:</strong> Led scrum meetings and documented progress in an Agile environment.</li>
-            </ul>
-          </section>
-          <a href="#" class="back-btn" onclick="hideModal('expModalCapgemini'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
-    <div id="expModalIBM" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalIBM')">&times;</span>
-        <header>
-          <h1>Software Engineer</h1>
-          <p>IBM | Feb 2019 - Oct 2021 | Bengaluru Area, India</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Main responsibilities and KPIs:</p>
-            <ul>
-              <li><strong>Java Development:</strong> Wrote robust code and implemented <strong>APIs</strong> using <strong>Spring Boot</strong>.</li>
-              <li><strong>CI/CD Pipeline:</strong> Built and maintained continuous integration and deployment pipelines.</li>
-              <li><strong>Containerization:</strong> Leveraged <strong>Kubernetes</strong> and <strong>Docker</strong> for efficient deployments.</li>
-              <li><strong>DevOps Practices:</strong> Employed tools like <strong>Jenkins, Git</strong> and <strong>Visual Studio Code</strong>.</li>
-              <li><strong>Linux/Unix Proficiency:</strong> Extensive work on <strong>Linux/Unix</strong> systems.</li>
-            </ul>
-          </section>
-          <a href="#" class="back-btn" onclick="hideModal('expModalIBM'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
-    <div id="expModalBharat" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalBharat')">&times;</span>
-        <header>
-          <h1>Summer Intern</h1>
-          <p>Bharat Sanchar Nigam Limited - India | May 2016 - Aug 2016</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Key highlights:</p>
-            <ul>
-              <li><strong>Telecommunication:</strong> Gained hands-on experience in the telecommunications sector.</li>
-              <li><strong>Networking &amp; Data Communication:</strong> Worked with critical technologies for networking and data transfer.</li>
-              <li><strong>Microprocessors:</strong> Developed foundational skills in microprocessor technology.</li>
-            </ul>
-          </section>
-          <a href="#" class="back-btn" onclick="hideModal('expModalBharat'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
-    <div id="expModalJSpiders" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalJSpiders')">&times;</span>
-        <header>
-          <h1>Intern</h1>
-          <p>J-Spiders | August 2018 | Bengaluru, Karnataka, India</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Key learning outcomes:</p>
-            <ul>
-              <li><strong>Programming Exposure:</strong> Gained exposure to <strong>Java, Python, MySQL</strong>, and <strong>JavaScript</strong>.</li>
-              <li><strong>Application Development:</strong> Developed an exam seating arrangement system using Java, HTML, CSS, JSP, JavaScript, MySQL, and Tomcat.</li>
-              <li><strong>CRM Application:</strong> Built a customer-relation manager using <strong>Spring Boot</strong> and related technologies.</li>
-            </ul>
-          </section>
-          <a href="#" class="back-btn" onclick="hideModal('expModalJSpiders'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
-    <div id="expModalJavaTech" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="hideModal('expModalJavaTech')">&times;</span>
-        <header>
-          <h1>Intern</h1>
-          <p>Java Technocrat | August 2017 | Bhubaneswar, Odisha, India</p>
-        </header>
-        <main>
-          <section class="description">
-            <p>Main contributions:</p>
-            <ul>
-              <li><strong>Software Programming:</strong> Worked on coding, algorithms, and data structures using Java.</li>
-              <li><strong>Library Management System:</strong> Developed a robust system to manage library operations.</li>
-              <li><strong>Crime Records Management:</strong> Created an online system for managing crime records using Java, JDBC, JSP, and MySQL.</li>
-            </ul>
-          </section>
-          <a href="#" class="back-btn" onclick="hideModal('expModalJavaTech'); return false;">&larr; Close</a>
-        </main>
-      </div>
-    </div>
-
     <!-- Projects Section -->
     <section class="projects">
-      <h2>Projects</h2>
+      <h2>Hello there! Welcome. </h2>
       <div class="projects-grid">
         <div class="project-card">
+          <img src="aboutme.png" alt="Projects" />
+          
+          <a href="certification.html" class="view-btn">About Me</a>
+        </div>
+        <div class="project-card">
           <img src="ghibli2.png" alt="Acadamic Projects" />
-          <h3> Academic Projects</h3>
-          <p>I have developed innovative academic projects in machine learning, full-stack web, monitoring, and automated testing using cutting-edge using various tools and tech-stacks.</p>
-          <a href="operation.html" class="view-btn">View Projects</a>
+          
+          <a href="operation.html" class="view-btn">Acadamic Projects</a>
         </div>
         <div class="project-card">
           <img src="AI2.png" alt="Projects" />
-          <h3>My Projects</h3>
-          <p>Here I am working on few own projects . My intention is try to resolve as much as solve real world problems , share my idea with publics and learn more from others ,and try to implement it .</p>
-          <a href="ai1.html" class="view-btn">View Projects</a>
+          
+          <a href="ai1.html" class="view-btn">Own Projects</a>
         </div>
         <div class="project-card">
           <!-- Removed the extra ".png" to fix the file name -->
           <img src="cheatsheet1.png" alt="My Cheatsheet" />
-          <h3>My Cheatsheets</h3>
-          <p>Here is the reference guide that summarizes key concepts, formulas, and commands for quick recall.</p>
-          <a href="ai.html" class="view-btn">View Cheatsheets</a>
           
+          <a href="ai.html" class="view-btn">View Cheatsheets</a> 
         </div>
       </div>
     </section>
@@ -810,7 +532,8 @@
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2025 Ankita Patra. All rights reserved.</p>
+      <p>&copy; I'd be happy to explore potential collaborations.</p>
     </footer>
   </body>
 </html>
+

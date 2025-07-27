@@ -97,32 +97,57 @@
   </div>
 
   <script>
-    // List of GitHub Repositories with Different Icons
+    // List of GitHub Repositories with Icons
     const projects = [
-      { name: 'Datamining Project', url: 'https://github.com/ankpatr1/DataMining_Projects', icon: 'symbol_book.png' },
-      { name: 'Programming Language', url: 'https://github.com/ankpatr1/Programming_Language', icon: 'symbol_book.png' }
- 
+      {
+        name: 'Datamining Project',
+        url: 'https://github.com/ankpatr1/DataMining_Projects',
+        icon: 'symbol_book.png'
+      },
+      {
+        name: 'Programming Language',
+        url: 'https://github.com/ankpatr1/Programming_Language',
+        icon: 'symbol_book.png'
+      },
+      {
+        name: 'Artificial Intelligence',
+        url: 'https://github.com/ankpatr1/Artificial-Intelligence-AI-',
+        icon: 'symbol_book.png'
+      },
+      {
+        name: 'RUST',
+        url: 'https://github.com/ankpatr1/System_Programming',
+        icon: 'symbol_book.png'
+      },
+      {
+        name: 'Machine Learning',
+        url: 'https://github.com/ankpatr1/Machine-Learning',
+        icon: 'symbol_book.png'
+      },
+      {
+        name: 'Database',
+        url: 'https://github.com/ankpatr1/Database',
+        icon: 'symbol_book.png'
+      }
     ];
-
-    // Dynamically Render GitHub Links
+  
+    // Render GitHub Project Cards
     const fileContainer = document.getElementById('fileContainer');
     projects.forEach((project) => {
       const card = document.createElement('div');
       card.className = 'file-card';
       card.onclick = () => window.open(project.url, '_blank');
-
-      // Add Different Icon for Each Project
+  
       card.innerHTML = `
         <img src="${project.icon}" alt="${project.name}" />
         <p>${project.name}</p>
       `;
       fileContainer.appendChild(card);
     });
-
-    // Go Back to AI Project Page
+  
+    // Back Button Logic
     function goBack() {
-      window.location.href = 'index.html'; // Redirect to ai1.html
+      window.location.href = 'index.html'; // Change if needed
     }
   </script>
-</body>
-</html>
+  

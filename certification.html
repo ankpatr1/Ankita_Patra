@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me</title>
+  <style>
+    :root {
+      --bg-color-light: #fff;
+      --text-color-light: #000;
+      --bg-color-dark: #121212;
+      --text-color-dark: #e0e0e0;
+      --pill-bg-light: #f3f3f3;
+      --pill-bg-dark: #1e1e1e;
+      --pill-border-light: #ddd;
+      --pill-border-dark: #333;
+      --highlight-color: #0077B5;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--highlight-color);
+      border-bottom: 2px solid #333;
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      margin: 2rem auto 1rem;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      padding: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid;
+    }
+
+    .pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 12px;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      border-radius: 20px;
+      padding: 8px 12px;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .btn-close {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 10px 20px;
+      background-color: var(--highlight-color);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .btn-close:hover {
+      background-color: #005a9c;
+    }
+
+    .view-more {
+      margin-left: 10px;
+      font-size: 0.9rem;
+      color: var(--highlight-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  </style>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (prefersDark) {
+        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-dark');
+        document.body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color-dark');
+        document.querySelectorAll('.section').forEach(el => el.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-dark'));
+        document.querySelectorAll('.section').forEach(el => el.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--pill-border-dark'));
+        document.querySelectorAll('.pill').forEach(el => {
+          el.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--pill-bg-dark');
+          el.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--pill-border-dark');
+          el.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color-dark');
+        });
+      } else {
+        document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-light');
+        document.body.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color-light');
+        document.querySelectorAll('.section').forEach(el => el.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color-light'));
+        document.querySelectorAll('.section').forEach(el => el.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--pill-border-light'));
+        document.querySelectorAll('.pill').forEach(el => {
+          el.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--pill-bg-light');
+          el.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--pill-border-light');
+          el.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color-light');
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a passionate Software Development Engineer with over 5.5 years of experience in AI/ML, DevOps, and cloud-native development. I’m currently pursuing an MS in Computer Science with a focus on Artificial Intelligence at Binghamton University (SUNY), NY. My expertise lies in building scalable microservices, designing automation pipelines, and delivering AI-powered solutions that drive performance and efficiency.
+    </p>
+    <p>
+      Professionally, I’ve contributed to impactful projects at TCS, Capgemini, and IBM. At TCS, I led the development of tools using Python, Terraform, and LLMs, earning the "On the Spot" award. At Capgemini, I improved system efficiency by 50% through backend automation and microservices. At IBM, I worked on full-stack development and DevOps pipelines, earning the “IBM Super Learner” recognition.
+    </p>
+    <p>
+      Currently, I serve as a Research Assistant in the CRAFT Lab under Professor Zhaohan Xi, where I work on NLP, LLMs, and automated test-question generation. I’m also involved in AI and Cybersecurity research on the EPSS (Exploit Prediction Scoring System), with a publication scheduled for August 2025. Additionally, as a Graduate Student Assistant, I provide support for Java-based enterprise applications, resolving backend issues and enhancing system reliability.
+    </p>
+  </section>
+  
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <h2>Education</h2>
+    <p>
+      <strong>State University of New York at Binghamton, NY</strong><br>
+      Master’s in Computer Science (AI Track) | GPA: 3.47 | (Aug 2024 – Dec 2025)
+    </p>
+    <p>
+      <strong>Biju Patnaik University of Technology, Odisha, India</strong><br>
+      Bachelor’s in Computer Science | GPA: 3.5 (7.52 CGPA) | (Aug 2014 – Jun 2018)
+    </p>
+  </section>
+
+  <!-- Work Experience -->
+  <section class="section" id="experience">
+    <h2>Work Experience</h2>
+    <p>
+      <strong>Graduate Research Assistant, Binghamton University - SUNY</strong> | Jan 2025 – Present, New York
+      <a class="view-more" href="exp-grad-assistant.html">View More</a>
+    </p>
+    <p>
+      <strong>Senior Software Development Engineer, TCS</strong> | Jan 2023 – Jul 2024, Bengaluru, India
+      <a class="view-more" href="exp-tcs.html">View More</a>
+    </p>
+    <p>
+      <strong>Software Development Engineer, Capgemini</strong> | Oct 2021 – Jan 2023, Bengaluru, India
+      <a class="view-more" href="exp-capgemini.html">View More</a>
+    </p>
+    <p>
+      <strong>Software Engineer, IBM</strong> | Feb 2019 – Oct 2021, Bengaluru, India
+      <a class="view-more" href="exp-ibm.html">View More</a>
+    </p>
+    <p>
+      <strong>Summer Intern, BSNL India</strong> | May 2016 – Aug 2016
+      <a class="view-more" href="exp-bsnl.html">View More</a>
+    </p>
+  </section>
+
+  <section class="section" id="certifications">
+    <h2>Certifications</h2>
+    <div class="pill-container">
+      <span class="pill">AWS Certified Developer Associate</span>
+      <span class="pill">Certified Scrum Master (IBM)</span>
+      <span class="pill">Cloud Core (IBM)</span>
+      <span class="pill">Terraform Associate (HashiCorp)</span>
+      <span class="pill">Data Science Methodologies (IBM)</span>
+      <span class="pill">Data Science Foundations – Level 1 (IBM)</span>
+      <span class="pill">IBM Cloud Essentials V2</span>
+      <span class="pill">Cloud Private Infrastructure-Architecture</span>
+      <span class="pill">Machine Learning with Python – Level 1</span>
+      <span class="pill">ML & GenAI with Python (Udemy)</span>
+      <span class="pill">AWS Cloud Practitioner</span>
+      <span class="pill">AZ‑900: Microsoft Azure Fundamentals</span>
+      <span class="pill">Generative AI Productivity Skills </span>
+    </div>
+    <button class="btn-close" onclick="window.location.href='index.html'">Close</button>
+  </section>
+
+</body>
+</html>

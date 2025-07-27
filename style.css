@@ -164,22 +164,21 @@ main {
 }
 
 /* SKILLS & CERTIFICATIONS */
-.skills,
-.certifications {
+.skills {
   background-color: #fff;
   padding: 20px;
   border-radius: 6px;
   border: 1px solid #ddd;
+  justify-content: center;
 }
 
-.skills h2,
-.certifications h2 {
+.skills h2 {
   margin-bottom: 15px;
   border-bottom: 2px solid #333;
   padding-bottom: 5px;
 }
 
-.pill {
+.skills  .pill {
   display: inline-block;
   background-color: #eef3f7;
   color: #333;
@@ -188,6 +187,44 @@ main {
   margin: 5px 0;
   font-size: 0.9rem;
   line-height: 1.2;
+}
+/* put this into your existing <style> block */
+
+/* CERTIFICATIONS (full‑width, centered) */
+.certifications {
+  max-width: 900px;        /* or whatever fits your design */
+  margin: 2rem auto;       /* center horizontally & space above */
+  padding: 20px;
+  background: var(--bg-color, #fff);
+  border: 1px solid var(--pill-border, #ddd);
+  border-radius: 6px;
+}
+
+/* Heading centered */
+.certifications h2 {
+  text-align: center;
+  color: var(--highlight-color, #0077B5);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+/* Pill wrapper: flex & wrap */
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 15px;         /* space between pills */
+  margin-top: 1rem;
+}
+
+/* Individual pills */
+.pill {
+  background: var(--pill-bg, #eef3f7);
+  color: var(--text-color, #333);
+  border-radius: 20px;
+  padding: 8px 12px;
+  white-space: nowrap;     /* keep them on one line */
 }
 
 /* EDUCATION & EXPERIENCE */
@@ -385,5 +422,49 @@ footer {
 .footer-social-links a:hover {
   color: #007bff;
 }
+/* MOBILE VIEW: Show only top on load, scroll for rest */
+@media screen and (max-width: 480px) {
+  body {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .profile-container {
+    max-height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    position: relative;
+    padding-bottom: 40px;
+  }
+
+  .profile-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+  }
+
+  main {
+    padding-bottom: 60px;
+  }
+}
+
 /* About Me icon styling */
 
+.scrollable-section {
+  max-height: 100vh;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+  /* On tablets and desktops, remove scroll behavior */
+  .scrollable-section {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
