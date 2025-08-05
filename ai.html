@@ -103,7 +103,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>My Cheatsheet</h1>
+    <h1>My Cheatsheet and Research</h1>
 
     <div class="grid-container">
       <div class="card">
@@ -131,12 +131,12 @@
       
 
       <div class="card">
-        <img src="others.png" alt="Other" />
+        <img src="cheatsheet1.png" alt="Other" />
         <div class="card-content">
-          <h3>Other</h3>
-          <p>A compact reference for mastering your skills.</p>
+          <h3>Publicaion and Research</h3>
+          <p>My research and publication</p>
           <div class="btn-group">
-            <button class="btn view-btn" onclick="viewSlide('system_design.png')">View</button>
+            <button class="btn view-btn" onclick="viewFolder('research')">View</button>
           </div>          
         </div>
       </div>
@@ -158,12 +158,14 @@
     function goBack() {
       window.location.href = 'index.html';
     }
-    // Open the folder.html for Programming Language
     function viewFolder(folder) {
-        if (folder === 'programming') {
-            window.location.href = 'folder.html';
-        }
+    if (folder === 'programming') {
+      window.open('folder.html', '_blank');  // Opens in new tab
     }
+    if (folder === 'research') {
+      window.open('research.html', '_blank');  // Also opens in new tab
+    }
+  }
 
   </script>
 </body>
